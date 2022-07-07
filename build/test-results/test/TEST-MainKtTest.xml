@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MainKtTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-07-07T11:05:20" hostname="LAPTOP-OL76BUKB" time="0.01">
+<testsuite name="MainKtTest" tests="2" skipped="0" failures="1" errors="0" timestamp="2022-07-07T12:15:24" hostname="LAPTOP-OL76BUKB" time="0.013">
   <properties/>
-  <testcase name="commission" classname="MainKtTest" time="0.01">
-    <failure message="java.lang.AssertionError: expected:&lt;2600&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;2600&gt; but was:&lt;0&gt;
+  <testcase name="commission" classname="MainKtTest" time="0.009"/>
+  <testcase name="commissionNoFreeLimit" classname="MainKtTest" time="0.004">
+    <failure message="java.lang.AssertionError: expected:&lt;3000&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;3000&gt; but was:&lt;0&gt;
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)
 	at org.junit.Assert.assertEquals(Assert.java:146)
-	at MainKtTest.commission(MainKtTest.kt:18)
+	at MainKtTest.commissionNoFreeLimit(MainKtTest.kt:33)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

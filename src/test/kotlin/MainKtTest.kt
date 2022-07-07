@@ -1,69 +1,36 @@
 import org.junit.Test
-
 import org.junit.Assert.*
 
 class MainKtTest {
 
     @Test
-    fun getTypeCard() {
-
-
-    }
-
-    @Test
-    fun setTypeCard() {
-        val typeCardNumber = 5
-
-        when (typeCardNumber) {
-            1 -> "VK pay"
-            2 -> "Maestro, Mastercard"
-            3 -> "VISA, MIR"
-            else -> {
-                error("Не поддерживаемая система оплаты")
-            }
-        }
-    }
-
-    @Test
-    fun getAmountSum() {
-
-    }
-
-    @Test
-    fun setAmountSum() {
-    }
-
-    @Test
-    fun getAmount() {
-    }
-
-    @Test
-    fun setAmount() {
-    }
-
-    @Test
-    fun main() {
-    }
-
-    @Test
     fun commission() {
-        val typeCard = "Maestro"
-        val amountSum = 30000
+        // arrange
 
-        when (typeCard) {
-            "Maestro, Mastercard" -> if (amountSum < MAESTRO_MASTERCARD_FREE_LIMIT) {
-                0
-            } else {
-                amount * 6 / 1000 + 2000
-            }
-            "VISA, MIR" -> if (amount * 75 / 10000 < MIR_VISA_MIN_COMMISSION) {
-                MIR_VISA_MIN_COMMISSION
-            } else {
-                amount * 75 / 10000
-            }
-            "VK pay" -> 0
-            else -> 0
-        }
+        val amount1 = 100_000
+        val amountSum1 = 10_000_000
+        val typeCard1 = "Maestro"
+
+        // act
+        val result = commission(amount = amount1, amountSum = amountSum1, typeCard = typeCard1)
+
+        // assert
+        assertEquals(0, result)
+
+    }
+    @Test
+    fun commissionNoFreeLimit() {
+        // arrange
+
+        val amount1 = 100_000
+        val amountSum1 = 10_000_000
+        val typeCard1 = "Maestro"
+
+        // act
+        val result = commission(amount = amount1, amountSum = amountSum1, typeCard = typeCard1)
+
+        // assert
+        assertEquals(3000, result)
 
     }
 }

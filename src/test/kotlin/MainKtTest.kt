@@ -8,7 +8,7 @@ class MainKtTest {
         // arrange
 
         val amount1 = 100_000
-        val amountSum1 = 10_000_000
+        val amountSum1 = 0
         val typeCard1 = "Maestro"
 
         // act
@@ -30,7 +30,7 @@ class MainKtTest {
         val result = commission(amount = amount1, amountSum = amountSum1, typeCard = typeCard1)
 
         // assert
-        assertEquals(3000, result)
+        assertEquals(2600, result)
 
     }
 }

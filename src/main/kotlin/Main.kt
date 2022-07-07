@@ -13,15 +13,19 @@ fun main() {
     print(
         "Для выбора типа карты/счета введите соответствующий номер:" +
                 "VK pay - 1 " +
-                "Maestro, Mastercard - 2 " +
-                "Visa, МИР - 3 :"
+                "Maestro, - 2 " +
+                "Visa - 3" +
+                "Mastercard - 4 " +
+                "МИР - 5 :"
     )
 
     val typeCardNumber = readLine()?.toInt() ?: return
     typeCard = when (typeCardNumber) {
         1 -> "VK pay"
-        2 -> "Maestro, Mastercard"
-        3 -> "VISA, MIR"
+        2 -> "Maestro"
+        3 -> "VISA, "
+        4 -> "Mastercard"
+        5 -> "MIR"
         else -> {
             error("Не поддерживаемая система оплаты")
         }
@@ -33,12 +37,12 @@ fun main() {
 }
 
 fun commission(amount: Int, amountSum: Int, typeCard: String) = when (typeCard) {
-    "Maestro, Mastercard" -> if (amountSum < MAESTRO_MASTERCARD_FREE_LIMIT) {
+    "Maestro", "Mastercard" -> if (amountSum < MAESTRO_MASTERCARD_FREE_LIMIT) {
         0
     } else {
         amount * 6 / 1000 + 2000
     }
-    "VISA, MIR" -> if (amount * 75 / 10000 < MIR_VISA_MIN_COMMISSION) {
+    "VISA", "MIR" -> if (amount * 75 / 10000 < MIR_VISA_MIN_COMMISSION) {
         MIR_VISA_MIN_COMMISSION
     } else {
         amount * 75 / 10000
